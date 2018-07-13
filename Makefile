@@ -23,6 +23,10 @@ TEST_ERLC_OPTS += +'{parse_transform, lager_transform}'
 
 COVER = true
 
+build/docker:
+	docker build . -t emq-auth-http:latest
+	docker rmi emq-auth-http:latest
+
 include erlang.mk
 
 app:: rebar.config
